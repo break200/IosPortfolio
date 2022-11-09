@@ -8,49 +8,52 @@
 import SwiftUI
 
 //MARK: - 텝 카테고리
-enum CategoryTab:String{
-    case GROCERY = "Grocery";
-    case INSTA = "Insta";
-    case UBER = "Uber";
-    case DESSERT = "Dessert";
+enum Tab: String, CaseIterable {
+    case Grocery
+    case Insta
+    case Uber
+    case Dessert
 }
 
-let tabs = [CategoryTab.GROCERY.rawValue,
-            CategoryTab.INSTA.rawValue,
-            CategoryTab.UBER.rawValue,
-            CategoryTab.DESSERT.rawValue]
+//MARK: - 탭 string Array
+let tabs = [Tab.Grocery.rawValue,
+            Tab.Insta.rawValue,
+            Tab.Uber.rawValue,
+            Tab.Dessert.rawValue]
 
 //MARK: - ContentView
 struct ContentView: View {
     
-    @State var selTab:CategoryTab = .GROCERY
+    //초기화값 세팅
+    @State var selectedTab:Tab = .Grocery
     
     var body: some View {
         NavigationView{
             VStack{
-                switch selTab {
-                case .GROCERY:
+                switch selectedTab {
+                case .Grocery:
                     Grocery()
-                case .INSTA:
+                case .Insta:
                     Insta()
-                case .UBER:
+                case .Uber:
                     Uber()
-                case .DESSERT:
-                    Uber()
+                case .Dessert:
+                    Dessert()
                 }
                 Spacer()
-                ContentTabView(selected: $selTab)
+                ContentTabView(selected: $selectedTab)
             }
         }.navigationBarTitle("")
          .navigationBarHidden(false)
          .navigationBarBackButtonHidden(false)
+        // 네비게이션 화면 
     }
 }
 
 //MARK: - TABBAR
 struct ContentTabView:View{
     
-    @Binding var selected:CategoryTab
+    @Binding var selected:Tab
     
     var body: some View {
         
@@ -65,14 +68,14 @@ struct ContentTabView:View{
                          )
                     Button {
                         switch i {
-                            case CategoryTab.GROCERY.rawValue:
-                              selected = .GROCERY
-                            case CategoryTab.INSTA.rawValue:
-                              selected = .INSTA
-                            case CategoryTab.UBER.rawValue:
-                              selected = .UBER
+                            case Tab.Grocery.rawValue:
+                              selected = .Grocery
+                            case Tab.Insta.rawValue:
+                              selected = .Insta
+                            case Tab.Uber.rawValue:
+                              selected = .Uber
                             default:
-                              selected = .DESSERT
+                              selected = .Dessert
                         }
                     } label: {
                         VStack{
