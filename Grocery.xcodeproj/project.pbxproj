@@ -15,6 +15,7 @@
 		FD0D906C291A708C00191FF3 /* Grocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D906B291A708C00191FF3 /* Grocery.swift */; };
 		FD0D906E291A70B100191FF3 /* Insta.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D906D291A70B100191FF3 /* Insta.swift */; };
 		FD0D9070291A70D100191FF3 /* Uber.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D906F291A70D100191FF3 /* Uber.swift */; };
+		FD3387A1291CD64200CC1907 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3387A0291CD64200CC1907 /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		FD0D906B291A708C00191FF3 /* Grocery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grocery.swift; sourceTree = "<group>"; };
 		FD0D906D291A70B100191FF3 /* Insta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insta.swift; sourceTree = "<group>"; };
 		FD0D906F291A70D100191FF3 /* Uber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uber.swift; sourceTree = "<group>"; };
+		FD3387A0291CD64200CC1907 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				FD0D905D291A6BC500191FF3 /* GroceryApp.swift */,
+				FD3387A0291CD64200CC1907 /* SplashScreenView.swift */,
 				FD0D905F291A6BC500191FF3 /* ContentView.swift */,
 				FD0D9071291A70EA00191FF3 /* Tab */,
 				FD0D9061291A6BC700191FF3 /* Assets.xcassets */,
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD3387A1291CD64200CC1907 /* SplashScreenView.swift in Sources */,
 				FD0D906E291A70B100191FF3 /* Insta.swift in Sources */,
 				FD0D9060291A6BC500191FF3 /* ContentView.swift in Sources */,
 				FD0D9070291A70D100191FF3 /* Uber.swift in Sources */,
