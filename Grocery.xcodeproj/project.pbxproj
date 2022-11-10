@@ -16,6 +16,11 @@
 		FD0D906E291A70B100191FF3 /* Insta.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D906D291A70B100191FF3 /* Insta.swift */; };
 		FD0D9070291A70D100191FF3 /* Uber.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D906F291A70D100191FF3 /* Uber.swift */; };
 		FD3387A1291CD64200CC1907 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3387A0291CD64200CC1907 /* SplashScreenView.swift */; };
+		FD3387A3291CD89600CC1907 /* LoginScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3387A2291CD89600CC1907 /* LoginScreenView.swift */; };
+		FD3387A5291CD8DA00CC1907 /* TutorialScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3387A4291CD8DA00CC1907 /* TutorialScreenView.swift */; };
+		FD5ED6E0291D490800C0DA97 /* ColorEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5ED6DF291D490800C0DA97 /* ColorEx.swift */; };
+		FD5ED6EC291D4E4B00C0DA97 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5ED6EB291D4E4B00C0DA97 /* Page.swift */; };
+		FD5ED6EF291D685300C0DA97 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5ED6EE291D685300C0DA97 /* NavigationUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +34,11 @@
 		FD0D906D291A70B100191FF3 /* Insta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insta.swift; sourceTree = "<group>"; };
 		FD0D906F291A70D100191FF3 /* Uber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uber.swift; sourceTree = "<group>"; };
 		FD3387A0291CD64200CC1907 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		FD3387A2291CD89600CC1907 /* LoginScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenView.swift; sourceTree = "<group>"; };
+		FD3387A4291CD8DA00CC1907 /* TutorialScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreenView.swift; sourceTree = "<group>"; };
+		FD5ED6DF291D490800C0DA97 /* ColorEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorEx.swift; sourceTree = "<group>"; };
+		FD5ED6EB291D4E4B00C0DA97 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		FD5ED6EE291D685300C0DA97 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +73,11 @@
 			children = (
 				FD0D905D291A6BC500191FF3 /* GroceryApp.swift */,
 				FD3387A0291CD64200CC1907 /* SplashScreenView.swift */,
+				FD3387A4291CD8DA00CC1907 /* TutorialScreenView.swift */,
+				FD3387A2291CD89600CC1907 /* LoginScreenView.swift */,
 				FD0D905F291A6BC500191FF3 /* ContentView.swift */,
+				FD5ED6ED291D4E5200C0DA97 /* Model */,
+				FD5ED6E1291D490B00C0DA97 /* Extension */,
 				FD0D9071291A70EA00191FF3 /* Tab */,
 				FD0D9061291A6BC700191FF3 /* Assets.xcassets */,
 				FD0D9063291A6BC700191FF3 /* Preview Content */,
@@ -90,6 +104,23 @@
 			path = Tab;
 			sourceTree = "<group>";
 		};
+		FD5ED6E1291D490B00C0DA97 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FD5ED6DF291D490800C0DA97 /* ColorEx.swift */,
+				FD5ED6EE291D685300C0DA97 /* NavigationUtil.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FD5ED6ED291D4E5200C0DA97 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD5ED6EB291D4E4B00C0DA97 /* Page.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +137,8 @@
 			dependencies = (
 			);
 			name = Grocery;
+			packageProductDependencies = (
+			);
 			productName = Grocery;
 			productReference = FD0D905A291A6BC500191FF3 /* Grocery.app */;
 			productType = "com.apple.product-type.application";
@@ -134,6 +167,8 @@
 				Base,
 			);
 			mainGroup = FD0D9051291A6BC500191FF3;
+			packageReferences = (
+			);
 			productRefGroup = FD0D905B291A6BC500191FF3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -162,8 +197,13 @@
 			files = (
 				FD3387A1291CD64200CC1907 /* SplashScreenView.swift in Sources */,
 				FD0D906E291A70B100191FF3 /* Insta.swift in Sources */,
+				FD3387A5291CD8DA00CC1907 /* TutorialScreenView.swift in Sources */,
 				FD0D9060291A6BC500191FF3 /* ContentView.swift in Sources */,
 				FD0D9070291A70D100191FF3 /* Uber.swift in Sources */,
+				FD5ED6EF291D685300C0DA97 /* NavigationUtil.swift in Sources */,
+				FD3387A3291CD89600CC1907 /* LoginScreenView.swift in Sources */,
+				FD5ED6EC291D4E4B00C0DA97 /* Page.swift in Sources */,
+				FD5ED6E0291D490800C0DA97 /* ColorEx.swift in Sources */,
 				FD0D906C291A708C00191FF3 /* Grocery.swift in Sources */,
 				FD038BD3291C0BFF00AC8A8E /* Dessert.swift in Sources */,
 				FD0D905E291A6BC500191FF3 /* GroceryApp.swift in Sources */,
