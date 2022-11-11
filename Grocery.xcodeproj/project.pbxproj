@@ -21,6 +21,8 @@
 		FD5ED6E0291D490800C0DA97 /* ColorEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5ED6DF291D490800C0DA97 /* ColorEx.swift */; };
 		FD5ED6EC291D4E4B00C0DA97 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5ED6EB291D4E4B00C0DA97 /* Page.swift */; };
 		FD5ED6EF291D685300C0DA97 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5ED6EE291D685300C0DA97 /* NavigationUtil.swift */; };
+		FD82EB60291E71CB000E8442 /* NavigationStack in Frameworks */ = {isa = PBXBuildFile; productRef = FD82EB5F291E71CB000E8442 /* NavigationStack */; };
+		FD943A12291EC265004FC38B /* ViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD943A11291EC265004FC38B /* ViewEx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,7 @@
 		FD5ED6DF291D490800C0DA97 /* ColorEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorEx.swift; sourceTree = "<group>"; };
 		FD5ED6EB291D4E4B00C0DA97 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		FD5ED6EE291D685300C0DA97 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
+		FD943A11291EC265004FC38B /* ViewEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEx.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD82EB60291E71CB000E8442 /* NavigationStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +113,7 @@
 			children = (
 				FD5ED6DF291D490800C0DA97 /* ColorEx.swift */,
 				FD5ED6EE291D685300C0DA97 /* NavigationUtil.swift */,
+				FD943A11291EC265004FC38B /* ViewEx.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 			);
 			name = Grocery;
 			packageProductDependencies = (
+				FD82EB5F291E71CB000E8442 /* NavigationStack */,
 			);
 			productName = Grocery;
 			productReference = FD0D905A291A6BC500191FF3 /* Grocery.app */;
@@ -168,6 +174,7 @@
 			);
 			mainGroup = FD0D9051291A6BC500191FF3;
 			packageReferences = (
+				FD82EB5E291E71CB000E8442 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */,
 			);
 			productRefGroup = FD0D905B291A6BC500191FF3 /* Products */;
 			projectDirPath = "";
@@ -204,6 +211,7 @@
 				FD3387A3291CD89600CC1907 /* LoginScreenView.swift in Sources */,
 				FD5ED6EC291D4E4B00C0DA97 /* Page.swift in Sources */,
 				FD5ED6E0291D490800C0DA97 /* ColorEx.swift in Sources */,
+				FD943A12291EC265004FC38B /* ViewEx.swift in Sources */,
 				FD0D906C291A708C00191FF3 /* Grocery.swift in Sources */,
 				FD038BD3291C0BFF00AC8A8E /* Dessert.swift in Sources */,
 				FD0D905E291A6BC500191FF3 /* GroceryApp.swift in Sources */,
@@ -407,6 +415,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FD82EB5E291E71CB000E8442 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/matteopuc/swiftui-navigation-stack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FD82EB5F291E71CB000E8442 /* NavigationStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD82EB5E291E71CB000E8442 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */;
+			productName = NavigationStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FD0D9052291A6BC500191FF3 /* Project object */;
 }
