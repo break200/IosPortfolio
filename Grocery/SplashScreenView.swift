@@ -15,40 +15,52 @@ struct SplashScreenView: View {
     
     
     var body: some View {
-        if isActive {
-            //앱을 최초실행 
-            TutorialScreenView()
+        
+        if isLoginConfirm() {
+           ContentView()
         }else{
-            ZStack {
-                //백그라운드 색깔적용
-                Color.RGB(red: 52, green: 152, blue: 219)
-                VStack{
+            if isActive {
+                //앱을 최초실행
+                TutorialScreenView()
+            }else{
+                ZStack {
+                    //백그라운드 색깔적용
+                    Color.RGB(red: 52, green: 152, blue: 219)
                     VStack{
-                     Image(systemName: "hare.fill")
-                            .font(.system(size: 80))
-                            .foregroundColor(.red)
-                     Text("포토폴리오")
-                            .font(.custom("Baskerville-Bold", size: 26))
-                            .foregroundColor(.black.opacity(0.8))
-                            
-                    }.scaleEffect(size)
-                    .opacity(opacity)
-                    .onAppear{
-                        withAnimation(.easeIn(duration: 1.2)) {
-                            self.size = 0.9
-                            self.opacity = 1.0
+                        VStack{
+                         Image(systemName: "hare.fill")
+                                .font(.system(size: 80))
+                                .foregroundColor(.red)
+                         Text("포토폴리오")
+                                .font(.custom("Baskerville-Bold", size: 26))
+                                .foregroundColor(.black.opacity(0.8))
+                                
+                        }.scaleEffect(size)
+                        .opacity(opacity)
+                        .onAppear{
+                            withAnimation(.easeIn(duration: 1.2)) {
+                                self.size = 0.9
+                                self.opacity = 1.0
+                            }
                         }
-                    }
-                }.onAppear{
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        withAnimation {
-                            self.isActive = true
+                    }.onAppear{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            withAnimation {
+                                self.isActive = true
+                            }
                         }
                     }
                 }
+                .ignoresSafeArea()
             }
-            .ignoresSafeArea()
         }
+    }
+    
+    private func isLoginConfirm() -> Bool {
+        guard let _ = UserDefaults.standard.object(forKey: "email") else {
+            return false
+        }
+        return true
     }
 }
 

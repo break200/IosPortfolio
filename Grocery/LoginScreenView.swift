@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+
+enum LoginType {
+    case Login;
+    case Main;
+    case Back;
+}
+
 struct LoginScreenView: View {
     
 //      @Environment(\.presentationMode)
@@ -25,30 +32,19 @@ struct LoginScreenView: View {
 //    }
 //    @Environment(\.dismiss) private var dismiss
     
-    @State private var isShowView = false
+//    @State private var isShowView = false
+    @State private var type:LoginType = .Login
     
     @State private var email = ""
     @State private var pass = ""
     
+    @State private var isEmailConfirm = false
+    @State private var isPassConfirm = false
+    
     var body: some View {
         
-        if isShowView {
-//            TutorialScreenView()
-            ContentView()
-        }else{
-//            VStack{
-//                HStack {
-//                        Button(action: {
-//                            self.isShowView.toggle()
-//                        }) {
-//                            Image(systemName: "arrowshape.backward.fill")
-//                                .padding()
-//                        Spacer()
-//                    }
-//                }
-//                Spacer()
-//            }
-            
+        switch type {
+        case .Login:
             ZStack{
                 Color.black
                 RoundedRectangle(cornerRadius: 30, style: .continuous)
@@ -68,11 +64,19 @@ struct LoginScreenView: View {
                             Text("Email")
                                 .foregroundColor(.white)
                                 .bold()
+                        }.onChange(of: email) { newValue in
+                            print("\(newValue)")
+                            //email 값 체크 할수 있음
+                            if isValidEmail(newValue) {
+                               print("메일체크완료")
+                               isEmailConfirm = true
+                            }else{
+                                isEmailConfirm = false
+                            }
                         }
                     Rectangle()
                         .frame(width: 350, height: 1)
                         .foregroundColor(.white)
-                    
                     
                     TextField("pass", text: $pass)
                         .foregroundStyle(.white)
@@ -81,65 +85,67 @@ struct LoginScreenView: View {
                             Text("Pass")
                                 .foregroundColor(.white)
                                 .bold()
+                        }.onChange(of: pass) { newValue in
+                            print("\(newValue)")
+                            //ㅔㅁ 값 체크 할수 있음
+                            
+                            if isValidPass(newValue){
+                                print("패스워드8자이상")
+                                isPassConfirm = true
+                            }else{
+                                isPassConfirm = false
+                            }
                         }
                     Rectangle()
                         .frame(width: 350, height: 1)
                         .foregroundColor(.white)
                     
                     Button {
-                        if let errorMessage = self.validView() {
-                           print(errorMessage)
-                           return
+                        if isEmailConfirm && isPassConfirm {
+                            
+                            UserDefaults.standard.set(pass, forKey: "pass")
+                            UserDefaults.standard.set(email, forKey: "email")
+                            
+                           self.type = .Main
                         }
-                        self.isShowView.toggle()
                     } label: {
-                       Text("Sign up")
-                            .bold()
-                            .frame(width: 200, height: 50)
-                            .background(
-                                RoundedRectangle(cornerRadius:20.0,style: .continuous)
-                                    .fill(.linearGradient(colors: [.red,.white.opacity(0.5)], startPoint: .top, endPoint: .bottomTrailing))
-                            )
+                       if isEmailConfirm && isPassConfirm {
+                           Text("확인")
+                                .bold()
+                                .frame(width: 200, height: 50)
+                                .background(
+                                    RoundedRectangle(cornerRadius:20.0,style: .continuous)
+                                        .fill(.linearGradient(colors: [.red,.white.opacity(0.5)], startPoint: .top, endPoint: .bottomTrailing))
+                                )
+                       }else{
+                           Text("Sign up")
+                                .bold()
+                                .frame(width: 200, height: 50)
+                                .background(
+                                    RoundedRectangle(cornerRadius:20.0,style: .continuous)
+                                        .fill(.linearGradient(colors: [.red,.white.opacity(0.5)], startPoint: .top, endPoint: .bottomTrailing))
+                                )
+                       }
                     }
-                    
                     Button {
                         print("회원가입")
+                        self.type = .Back
                     } label: {
                        Text("Already have an account? Login")
                             .bold()
                             .foregroundColor(.white)
                             .padding(.top)
-                            .offset(y:200)
+//                            .offset(y:200)
                     }
-
-                    
                 }.frame(width: 350)
                 
             }.ignoresSafeArea()
+        case .Main:
+            ContentView()
+        case .Back:
+            TutorialScreenView()
         }
     }
-    
-    private func validView() -> String? {
-         if email.isEmpty {
-             return "Email is empty"
-         }
-         
-         if !self.isValidEmail(email) {
-             return "Email is invalid"
-         }
-         
-         if pass.isEmpty {
-             return "Password is empty"
-         }
-         
-//         if self.password.count < 8 {
-//             return "Password should be 8 character long"
-//         }
-         
-         // Do same like other validation as per needed
-         
-         return nil
-     }
     
     //이메일 체크
     private func isValidEmail(_ email: String) -> Bool {
@@ -147,6 +153,20 @@ struct LoginScreenView: View {
           let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
           return emailPred.evaluate(with: email)
     }
+    
+    
+    private func isValidPass(_ pass: String) -> Bool {
+         if pass.count < 8 {
+             return false
+         }else{
+             return true
+         }
+    }
+    
+    
+    //이메일 및 패스워드 채크
+//    private func
+    
 }
 
 struct LoginScreenView_Previews: PreviewProvider {
