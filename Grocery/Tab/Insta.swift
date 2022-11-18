@@ -7,11 +7,36 @@
 
 import SwiftUI
 
+
+
 struct Insta: View {
     var body: some View {
         VStack(spacing: 15) {
             ScrollView(.vertical, showsIndicators: false){
-                Text("테스트")
+                HStack(spacing: 12){
+                    Image("camera")
+                        .padding(.leading,15)
+                    Spacer()
+                    Text("Instagram")
+                    Spacer()
+                    Image("send")
+                        .padding(.trailing,15)
+                }
+                HStack{
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 15){
+                            ForEach(1...8,id: \.self){i in
+                                ZStack{
+                                    Image("p\(i)")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 60, height: 60)
+                                        .clipShape(Circle())
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
